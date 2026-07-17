@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 18th Birthday Hanna!</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Poppins,sans-serif;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff9ecf,#ffd6e7,#fff2c6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    text-align:center;
+    color:white;
+    z-index:10;
+    padding:20px;
+}
+
+.gift{
+    font-size:110px;
+    cursor:pointer;
+    animation:bounce 1.5s infinite;
+    transition:.4s;
+}
+
+.gift:hover{
+    transform:scale(1.15);
+}
+
+.hidden{
+    display:none;
+}
+
+h1{
+    font-size:58px;
+    margin-bottom:15px;
+    text-shadow:2px 2px 8px rgba(0,0,0,.3);
+}
+
+.name{
+    font-family:"Great Vibes",cursive;
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.message{
+    max-width:650px;
+    margin:auto;
+    line-height:1.8;
+    font-size:20px;
+    animation:fadeIn 2s;
+}
+
+.footer{
+    margin-top:35px;
+    font-size:17px;
+    opacity:.9;
+}
+
+.balloon{
+    position:absolute;
+    bottom:-120px;
+    font-size:45px;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(0);}
+to{transform:translateY(-120vh);}
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="giftBox">
+<div class="gift" onclick="openGift()">🎁</div>
+
+<h2 style="margin-top:20px;color:white;">
+Tap the Gift 🎁
+</h2>
+
+<p style="margin-top:10px;color:white;">
+A special surprise is waiting...
+</p>
+
+</div>
+
+<div id="card" class="hidden">
+
+<h1>🎉 HAPPY 18th BIRTHDAY 🎉</h1>
+
+<div class="name">
+Hanna Feh Marabe
+</div>
+
+<p class="message">
+Today marks a beautiful milestone in your life.
+May your 18th year be filled with endless joy,
+new adventures, wonderful memories, and dreams
+that come true.
+
+Never stop believing in yourself because the best
+chapters of your story are only just beginning.
+
+🌸 Happy Birthday! 🌸
+</p>
+
+<div class="footer">
+❤️ With Love<br><br>
+
+<b>From</b><br>
+Rosevier Flowers & Engraving
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function openGift(){
+
+document.getElementById("giftBox").style.display="none";
+document.getElementById("card").classList.remove("hidden");
+
+confetti({
+particleCount:180,
+spread:150,
+origin:{y:.6}
+});
+
+setInterval(()=>{
+confetti({
+particleCount:6,
+angle:60,
+spread:55,
+origin:{x:0}
+});
+
+confetti({
+particleCount:6,
+angle:120,
+spread:55,
+origin:{x:1}
+});
+},1800);
+
+createBalloons();
+
+}
+
+function createBalloons(){
+
+const emojis=["🎈","🎈","🎈","🎈","✨","💖","🌸"];
+
+setInterval(()=>{
+
+let balloon=document.createElement("div");
+
+balloon.className="balloon";
+
+balloon.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+balloon.style.left=Math.random()*100+"vw";
+
+balloon.style.animationDuration=(6+Math.random()*5)+"s";
+
+document.body.appendChild(balloon);
+
+setTimeout(()=>{
+balloon.remove();
+},12000);
+
+},400);
+
+}
+
+</script>
+
+</body>
+</html>
