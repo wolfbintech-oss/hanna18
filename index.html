@@ -1,212 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 18th Birthday Hanna!</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-body{
-    font-family:Poppins,sans-serif;
-    overflow:hidden;
-    background:linear-gradient(135deg,#ff9ecf,#ffd6e7,#fff2c6);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
+    <title>Happy 18th Birthday Hanna</title>
 
-.container{
-    text-align:center;
-    color:white;
-    z-index:10;
-    padding:20px;
-}
+    <link rel="stylesheet" href="style.css">
 
-.gift{
-    font-size:110px;
-    cursor:pointer;
-    animation:bounce 1.5s infinite;
-    transition:.4s;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-.gift:hover{
-    transform:scale(1.15);
-}
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-.hidden{
-    display:none;
-}
-
-h1{
-    font-size:58px;
-    margin-bottom:15px;
-    text-shadow:2px 2px 8px rgba(0,0,0,.3);
-}
-
-.name{
-    font-family:"Great Vibes",cursive;
-    font-size:65px;
-    margin-bottom:15px;
-}
-
-.message{
-    max-width:650px;
-    margin:auto;
-    line-height:1.8;
-    font-size:20px;
-    animation:fadeIn 2s;
-}
-
-.footer{
-    margin-top:35px;
-    font-size:17px;
-    opacity:.9;
-}
-
-.balloon{
-    position:absolute;
-    bottom:-120px;
-    font-size:45px;
-    animation:float linear infinite;
-}
-
-@keyframes float{
-from{transform:translateY(0);}
-to{transform:translateY(-120vh);}
-}
-
-@keyframes bounce{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
-}
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="container">
+    <!-- Floating Background -->
 
-<div id="giftBox">
-<div class="gift" onclick="openGift()">🎁</div>
+    <div id="background">
 
-<h2 style="margin-top:20px;color:white;">
-Tap the Gift 🎁
-</h2>
+        <div class="gradient"></div>
 
-<p style="margin-top:10px;color:white;">
-A special surprise is waiting...
-</p>
+        <div id="petals"></div>
 
-</div>
+        <div id="sparkles"></div>
 
-<div id="card" class="hidden">
+    </div>
 
-<h1>🎉 HAPPY 18th BIRTHDAY 🎉</h1>
 
-<div class="name">
-Hanna Feh Marabe
-</div>
 
-<p class="message">
-Today marks a beautiful milestone in your life.
-May your 18th year be filled with endless joy,
-new adventures, wonderful memories, and dreams
-that come true.
+    <!-- Intro Screen -->
 
-Never stop believing in yourself because the best
-chapters of your story are only just beginning.
+    <section id="intro">
 
-🌸 Happy Birthday! 🌸
-</p>
+        <div class="intro-card">
 
-<div class="footer">
-❤️ With Love<br><br>
+            <h3>A Special Surprise Awaits...</h3>
 
-<b>From</b><br>
-Rosevier Flowers & Engraving
-</div>
+            <p>Made especially for</p>
 
-</div>
+            <h1>Hanna Feh Marabe</h1>
 
-</div>
+            <button id="startBtn">
+                Continue
+            </button>
 
-<script>
+        </div>
 
-function openGift(){
+    </section>
 
-document.getElementById("giftBox").style.display="none";
-document.getElementById("card").classList.remove("hidden");
 
-confetti({
-particleCount:180,
-spread:150,
-origin:{y:.6}
-});
 
-setInterval(()=>{
-confetti({
-particleCount:6,
-angle:60,
-spread:55,
-origin:{x:0}
-});
+    <!-- Gift Screen -->
 
-confetti({
-particleCount:6,
-angle:120,
-spread:55,
-origin:{x:1}
-});
-},1800);
+    <section id="giftScreen" class="hidden">
 
-createBalloons();
+        <div class="gift-container">
 
-}
+            <h2>Tap the Gift</h2>
 
-function createBalloons(){
+            <div id="gift">
 
-const emojis=["🎈","🎈","🎈","🎈","✨","💖","🌸"];
+                🎁
 
-setInterval(()=>{
+            </div>
 
-let balloon=document.createElement("div");
+            <p>Your birthday surprise is waiting...</p>
 
-balloon.className="balloon";
+        </div>
 
-balloon.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+    </section>
 
-balloon.style.left=Math.random()*100+"vw";
 
-balloon.style.animationDuration=(6+Math.random()*5)+"s";
 
-document.body.appendChild(balloon);
+    <!-- Birthday Card -->
 
-setTimeout(()=>{
-balloon.remove();
-},12000);
+    <section id="birthdayCard" class="hidden">
 
-},400);
+        <div class="card">
 
-}
+            <div class="age">
 
-</script>
+                18
+
+            </div>
+
+            <h1>
+
+                🎉 Happy 18th Birthday 🎉
+
+            </h1>
+
+            <h2>
+
+                Hanna Feh Marabe
+
+            </h2>
+
+            <div id="typedMessage">
+
+            </div>
+
+            <button id="musicBtn">
+
+                🎵 Play Music
+
+            </button>
+
+            <button id="wishBtn">
+
+                ⭐ Make a Wish
+
+            </button>
+
+            <div class="footer">
+
+                <h3>
+
+                    With Love ❤️
+
+                </h3>
+
+                <p>
+
+                    Rosevier Flowers & Engraving
+
+                </p>
+
+                <small>
+
+                    Creating memories beyond flowers.
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Wish Overlay -->
+
+    <section id="wishOverlay" class="hidden">
+
+        <div class="wishContent">
+
+            <h1>
+
+                🌠 Make a Wish
+
+            </h1>
+
+            <p>
+
+                May every wish you make today lead you closer to the life you've always dreamed of.
+
+            </p>
+
+            <h2>
+
+                Happy 18th Birthday Hanna 💖
+
+            </h2>
+
+            <button id="closeWish">
+
+                Continue
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Music -->
+
+    <audio id="birthdayMusic" loop>
+
+        <!-- Put your music in /music folder -->
+
+        <source src="music/birthday.mp3" type="audio/mpeg">
+
+    </audio>
+
+
+
+    <!-- Confetti Library -->
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
